@@ -1,0 +1,10 @@
+
+/CMakeFiles
+/CMakeCache.txt
+*.cmake
+*.filters
+*.user
+*.sdf
+*.vcxproj
+*.sln
+*.opensdf
