@@ -1,5 +1,11 @@
 cmake_minimum_required (VERSION 2.6)
-project (TBSG)
+project (TBSE)
 
-set (TBSG_VERSION_MAJOR 0)
-set (TBSG_VERSION_MINOR 0)
+set (TBSE_VERSION_MAJOR 0)
+set (TBSE_VERSION_MINOR 0)
+
+FIND_PACKAGE(GIT)
+FIND_PACKAGE(BOOST REQUIRED)
+FIND_PACKAGE(QT4 REQUIRED)
+
+add_executable(TGBE main.cpp)
