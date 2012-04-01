@@ -8,11 +8,17 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/filesystem.hpp>
 
+#ifdef _WIN32
+#include <windows.h>
+#else
+#endif
+
 #include "plugin.h"
 
 namespace TBSE
 {
   void visit_plugin_path(const std::string& path);
+  void try_load_plugin(const boost::filesystem::directory_entry& entry);
 
   void visit_all_plugin_paths()
   {
@@ -49,6 +55,14 @@ namespace TBSE
 
   void visit_plugin_path(const std::string& path)
   {
-    //boost::filesystem::directory_iterator(p), boost::filesystem::directory_iterator());
+    std::for_each(boost::filesystem::directory_iterator(path), boost::filesystem::directory_iterator(), try_load_plugin);
+  }
+
+  void try_load_plugin(const boost::filesystem::directory_entry& entry)
+  {
+#ifdef _WIN32
+    HMODULE hModule = LoadLibraryEx(entry.path().string().c_str(), NULL, LOAD_LIBRARY_AS_DATAFILE);
+#else
+#endif
   }
 }
