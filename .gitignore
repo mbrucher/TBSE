@@ -32,3 +32,6 @@ CMakeCache.txt
 *.sbr
 obj/
 [Rr]elease*/
+
+/ipch
+/Win32
