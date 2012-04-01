@@ -22,5 +22,5 @@ configure_file (
 
 add_subdirectory(Core)
   
-add_executable(TGSE main.cpp)
+add_executable(TGSE *.cpp *.h)
 target_link_libraries (TGSE TGSE_Core)
