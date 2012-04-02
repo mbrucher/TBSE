@@ -25,3 +25,4 @@ add_subdirectory(Qt)
 
 add_executable(TGSE *.cpp *.h)
 target_link_libraries (TGSE TGSE_Core)
+install(TARGETS TGSE DESTINATION bin)
