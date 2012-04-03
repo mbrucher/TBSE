@@ -35,3 +35,7 @@ obj/
 
 /ipch
 /Win32
+moc*
+*config.h
+
+/install_manifest.txt
