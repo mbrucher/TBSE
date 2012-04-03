@@ -15,6 +15,9 @@ include_directories ( ${Boost_INCLUDE_DIRS} )
 
 FIND_PACKAGE(QT4 REQUIRED)
 
+include(${QT_USE_FILE})
+add_definitions(${QT_DEFINITIONS})
+
 configure_file (
   "${PROJECT_SOURCE_DIR}/TBSE_config.h.in"
   "${PROJECT_BINARY_DIR}/TBSE_config.h"

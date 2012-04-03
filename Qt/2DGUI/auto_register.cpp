@@ -2,10 +2,8 @@
  * \file autoregister.cpp
  */
 
-#include "../../Core/registry.h"
+#include "../../Core/main_registry.h"
 
-void test()
-{
-}
+#include "main.h"
 
-TGSEEXPORTPLUGIN(2DGUI, test)
+TGSEEXPORTMAINPLUGIN(2DGUI, TGSE::Qt::main)

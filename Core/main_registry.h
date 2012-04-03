@@ -16,7 +16,7 @@ namespace TGSE
   {
     MainRegistry();
   public:
-    typedef void (*MainRegistryFunction)();
+    typedef int (*MainRegistryFunction)(int& argc, char** argv);
   private:
     typedef std::map<std::string, MainRegistryFunction> MainRegistryInnerType;
     MainRegistryInnerType registry;
