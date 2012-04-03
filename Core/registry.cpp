@@ -2,6 +2,8 @@
  * \file registry.cpp
  */
 
+#include <iostream>
+
 #include "registry.h"
 
 namespace TGSE
@@ -18,6 +20,7 @@ namespace TGSE
 
   void Registry::set_function(const std::string& name, RegistryFunction function)
   {
+    std::cout << name << std::endl;
     registry[name] = function;
   }
 

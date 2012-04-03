@@ -5,6 +5,7 @@
 #include <string>
 
 #include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <boost/filesystem.hpp>
 
@@ -55,13 +56,20 @@ namespace TBSE
 
   void visit_plugin_path(const std::string& path)
   {
-    std::for_each(boost::filesystem::directory_iterator(path), boost::filesystem::directory_iterator(), try_load_plugin);
+    if(boost::filesystem::exists(path) && boost::filesystem::is_directory(path))
+    {
+      std::for_each(boost::filesystem::directory_iterator(path), boost::filesystem::directory_iterator(), try_load_plugin);
+    }
   }
 
   void try_load_plugin(const boost::filesystem::directory_entry& entry)
   {
+    std::string path = entry.path().string();
 #ifdef _WIN32
-    HMODULE hModule = LoadLibraryEx(entry.path().string().c_str(), NULL, LOAD_LIBRARY_AS_DATAFILE);
+    if (boost::algorithm::iends_with(path, ".dll"))
+    {
+      HMODULE hModule = LoadLibraryEx(path.c_str(), NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE);
+    }
 #else
 #endif
   }
