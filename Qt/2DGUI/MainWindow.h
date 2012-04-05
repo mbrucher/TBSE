@@ -7,7 +7,7 @@
 
 #include <QMainWindow>
 
-class Ui_MainWindow;
+class Ui_TGSEMainWindow;
 
 namespace TGSE
 {
@@ -16,7 +16,7 @@ namespace TGSE
 
     class MainWindow: public QMainWindow
     {
-      Ui_MainWindow* ui;
+      Ui_TGSEMainWindow* ui;
     public:
       MainWindow();
     };

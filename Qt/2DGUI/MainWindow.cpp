@@ -12,7 +12,7 @@ namespace TGSE
   {
     MainWindow::MainWindow()
     {
-      ui = new Ui_MainWindow;
+      ui = new Ui_TGSEMainWindow;
       ui->setupUi(this);
     }
   }

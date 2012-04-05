@@ -41,3 +41,6 @@ moc*
 Makefile
 TGSE
 /install_manifest.txt
+qrc*.cxx
+*depends
+ui_*.h
