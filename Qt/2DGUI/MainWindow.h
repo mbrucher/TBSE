@@ -13,12 +13,15 @@ namespace TGSE
 {
   namespace Qt
   {
-
     class MainWindow: public QMainWindow
     {
+      Q_OBJECT
       Ui_TGSEMainWindow* ui;
     public:
       MainWindow();
+
+    signals:
+      void displayMainDock(bool);
     };
   }
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>892</width>
+    <height>861</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>892</width>
      <height>25</height>
     </rect>
    </property>
@@ -100,6 +100,18 @@
     </layout>
    </widget>
   </widget>
+  <widget class="QDockWidget" name="interactionDock">
+   <property name="features">
+    <set>QDockWidget::NoDockWidgetFeatures</set>
+   </property>
+   <property name="windowTitle">
+    <string/>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2"/>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -110,14 +122,33 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
-     <y>304</y>
+     <x>168</x>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
      <x>692</x>
-     <y>-17</y>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TGSEMainWindow</sender>
+   <signal>displayMainDock(bool)</signal>
+   <receiver>mainDock</receiver>
+   <slot>setShown(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>358</x>
+     <y>446</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>141</x>
+     <y>438</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <signal>displayMainDock(bool)</signal>
+ </slots>
 </ui>
