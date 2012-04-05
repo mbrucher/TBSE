@@ -24,8 +24,17 @@ namespace TGSE
     signals:
       void displayMainDock(bool);
 
+    public slots:
+      void new_game();
+      void load_game();
+      void save_game();
+      void hall_of_fame();
+      void options();
+
     protected:
       void keyPressEvent(QKeyEvent* event);
+
+      void connect_main_doc();
     };
   }
 }
