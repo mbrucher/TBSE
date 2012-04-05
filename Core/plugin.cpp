@@ -2,6 +2,7 @@
  * \file plugin.cpp
  */
 
+#include <iostream>
 #include <string>
 
 #include <boost/algorithm/string/classification.hpp>
@@ -73,6 +74,11 @@ namespace TBSE
     }
 #else
     void* lib_handle = dlopen(path.c_str(), RTLD_NOW);
+    if (!lib_handle)
+    {
+      std::cout << "    Path " << path << " is not a plugin: " << dlerror() << std::endl;
+    }
+
 #endif
   }
 }

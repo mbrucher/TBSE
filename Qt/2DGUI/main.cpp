@@ -4,9 +4,15 @@
 
 #include <QApplication>
 #include <QFile>
-#include <QMainWindow>
+
+#include "MainWindow.h"
 
 #include "main.h"
+
+static void __for_qt_namespace_issues()
+{
+  Q_INIT_RESOURCE(resources);
+}
 
 namespace TGSE
 {
@@ -18,12 +24,14 @@ namespace TGSE
       app.setOrganizationName("MB");
       app.setApplicationName("TGSE");
 
-      QFile file(":/TGSE/qss/coffee.qss");
+      __for_qt_namespace_issues();
+
+      QFile file(":/TGSE/resources/coffee.qss");
       file.open(QFile::ReadOnly);
       QString styleSheet = QLatin1String(file.readAll());
       app.setStyleSheet(styleSheet);
 
-      QMainWindow mainWin;
+      MainWindow mainWin;
       mainWin.showMaximized();
       return app.exec();
     }
