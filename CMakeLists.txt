@@ -24,7 +24,7 @@ configure_file (
   )
 
 add_subdirectory(Core)
-add_subdirectory(Qt)
+add_subdirectory(GUI)
 
 file(GLOB TGSE_sources *.cpp)
 file(GLOB TGSE_headers *.h)
