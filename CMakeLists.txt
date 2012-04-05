@@ -4,16 +4,16 @@ project (TBSE)
 set (TBSE_VERSION_MAJOR 0)
 set (TBSE_VERSION_MINOR 0)
 
-FIND_PACKAGE(GIT)
+FIND_PACKAGE(Git)
 
 GIT_TREE_INFO( . TBSE_GIT )
 
-FIND_PACKAGE(BOOST REQUIRED)
+FIND_PACKAGE(Boost REQUIRED)
 
 link_directories ( ${Boost_LIBRARY_DIRS} )
 include_directories ( ${Boost_INCLUDE_DIRS} )
 
-FIND_PACKAGE(QT4 REQUIRED)
+FIND_PACKAGE(Qt4 REQUIRED)
 
 include(${QT_USE_FILE})
 add_definitions(${QT_DEFINITIONS})
@@ -26,6 +26,9 @@ configure_file (
 add_subdirectory(Core)
 add_subdirectory(Qt)
 
-add_executable(TGSE *.cpp *.h)
+file(GLOB TGSE_sources *.cpp)
+file(GLOB TGSE_headers *.h)
+
+add_executable(TGSE ${TGSE_sources} ${TGSE_headers})
 target_link_libraries (TGSE TGSE_Core)
 install(TARGETS TGSE DESTINATION bin)

@@ -3,6 +3,7 @@
  */
 
 #include <iostream>
+#include <stdexcept>
 
 #include "registry.h"
 
@@ -20,7 +21,7 @@ namespace TGSE
 
   void Registry::set_function(const std::string& name, RegistryFunction function)
   {
-    std::cout << name << std::endl;
+    std::cout << "Discovered plugin " << name << std::endl;
     registry[name] = function;
   }
 

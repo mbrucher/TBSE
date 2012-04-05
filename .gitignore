@@ -32,10 +32,12 @@ CMakeCache.txt
 *.sbr
 obj/
 [Rr]elease*/
-
+*~
 /ipch
 /Win32
 moc*
 *config.h
-
+*.so
+Makefile
+TGSE
 /install_manifest.txt

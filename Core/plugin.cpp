@@ -12,6 +12,7 @@
 #ifdef _WIN32
 #include <windows.h>
 #else
+#include <dlfcn.h>
 #endif
 
 #include "plugin.h"
@@ -71,6 +72,7 @@ namespace TBSE
       HMODULE hModule = LoadLibraryEx(path.c_str(), NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE);
     }
 #else
+    void* lib_handle = dlopen(path.c_str(), RTLD_NOW);
 #endif
   }
 }
