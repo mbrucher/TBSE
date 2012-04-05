@@ -135,7 +135,7 @@
    <sender>TGSEMainWindow</sender>
    <signal>displayMainDock(bool)</signal>
    <receiver>mainDock</receiver>
-   <slot>setShown(bool)</slot>
+   <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>358</x>

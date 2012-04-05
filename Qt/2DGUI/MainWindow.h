@@ -17,11 +17,15 @@ namespace TGSE
     {
       Q_OBJECT
       Ui_TGSEMainWindow* ui;
+      bool mainDockVisible;
     public:
       MainWindow();
 
     signals:
       void displayMainDock(bool);
+
+    protected:
+      void keyPressEvent(QKeyEvent* event);
     };
   }
 }
