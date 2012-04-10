@@ -1,12 +1,12 @@
 /**
- * \file MainWindow.cpp
+ * \file main_window.cpp
  */
 
 #include <QKeyEvent>
 
-#include "ui_MainWindow.h"
+#include "ui_main_window.h"
 
-#include "MainWindow.h"
+#include "main_window.h"
 
 namespace TBSE
 {

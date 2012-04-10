@@ -1,5 +1,5 @@
 /**
- * \file MainWindow.h
+ * \file main_window.h
  */
 
 #ifndef MAINWINDOW_H
