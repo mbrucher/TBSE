@@ -7,16 +7,16 @@
 
 #include <QMainWindow>
 
-class Ui_TGSEMainWindow;
+class Ui_TBSEMainWindow;
 
-namespace TGSE
+namespace TBSE
 {
   namespace Qt
   {
     class MainWindow: public QMainWindow
     {
       Q_OBJECT
-      Ui_TGSEMainWindow* ui;
+      Ui_TBSEMainWindow* ui;
       bool mainDockVisible;
     public:
       MainWindow();

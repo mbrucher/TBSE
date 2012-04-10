@@ -6,4 +6,4 @@
 
 #include "main.h"
 
-TGSEEXPORTMAINPLUGIN(2DGUI, TGSE::Qt::main)
+TBSEEXPORTMAINPLUGIN(2DGUI, TBSE::Qt::main)

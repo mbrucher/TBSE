@@ -8,14 +8,14 @@
 
 #include "MainWindow.h"
 
-namespace TGSE
+namespace TBSE
 {
   namespace Qt
   {
     MainWindow::MainWindow()
       :mainDockVisible(true)
     {
-      ui = new Ui_TGSEMainWindow;
+      ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
     }
 

@@ -7,7 +7,7 @@
 
 #include "registry.h"
 
-namespace TGSE
+namespace TBSE
 {
   Registry& Registry::get()
   {

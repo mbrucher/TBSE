@@ -11,5 +11,5 @@ int main(int argc, char** argv)
 {
   TBSE::visit_all_plugin_paths();
 
-  return (*TGSE::MainRegistry::get().get_function("2DGUI"))(argc, argv);
+  return (*TBSE::MainRegistry::get().get_function("2DGUI"))(argc, argv);
 }

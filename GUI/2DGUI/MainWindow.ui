@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TGSEMainWindow</class>
- <widget class="QMainWindow" name="TGSEMainWindow">
+ <class>TBSEMainWindow</class>
+ <widget class="QMainWindow" name="TBSEMainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,12 +11,16 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>TGSE</string>
+   <string>TBSE</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QGraphicsView" name="graphicsView"/>
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -122,7 +126,7 @@
   <connection>
    <sender>exitButton</sender>
    <signal>clicked()</signal>
-   <receiver>TGSEMainWindow</receiver>
+   <receiver>TBSEMainWindow</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -136,7 +140,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>TGSEMainWindow</sender>
+   <sender>TBSEMainWindow</sender>
    <signal>displayMainDock(bool)</signal>
    <receiver>mainDock</receiver>
    <slot>setVisible(bool)</slot>

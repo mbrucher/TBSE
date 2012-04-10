@@ -1,5 +1,5 @@
 <RCC>
-<qresource prefix="/TGSE">
+<qresource prefix="/TBSE">
     <file>resources/coffee.qss</file>
 </qresource>
 </RCC>

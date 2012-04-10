@@ -8,9 +8,9 @@
 #include <map>
 #include <string>
 
-#include "TGSE_Core_config.h"
+#include "TBSE_Core_config.h"
 
-namespace TGSE
+namespace TBSE
 {
   class MainRegistry
   {
@@ -21,20 +21,20 @@ namespace TGSE
     typedef std::map<std::string, MainRegistryFunction> MainRegistryInnerType;
     MainRegistryInnerType registry;
   public:
-    TGSE_Core_EXPORT static MainRegistry& get();
+    TBSE_Core_EXPORT static MainRegistry& get();
 
-    TGSE_Core_EXPORT void set_function(const std::string& name, MainRegistryFunction function);
-    TGSE_Core_EXPORT MainRegistryFunction get_function(const std::string& name) const;
+    TBSE_Core_EXPORT void set_function(const std::string& name, MainRegistryFunction function);
+    TBSE_Core_EXPORT MainRegistryFunction get_function(const std::string& name) const;
   };
 
   class MainRegistryLoader
   {
   public:
-    TGSE_Core_EXPORT MainRegistryLoader(const std::string& name, MainRegistry::MainRegistryFunction function);
+    TBSE_Core_EXPORT MainRegistryLoader(const std::string& name, MainRegistry::MainRegistryFunction function);
   };
 }
 
-#define TGSEEXPORTMAINPLUGIN(name, function) \
-  TGSE::MainRegistryLoader main_registry_loader##name( #name, function);
+#define TBSEEXPORTMAINPLUGIN(name, function) \
+  TBSE::MainRegistryLoader main_registry_loader##name( #name, function);
 
 #endif

@@ -2,10 +2,10 @@
  * \file main.h
  */
 
-#ifndef TGSE_QT_2DGUI_MAIN_H
-#define TGSE_QT_2DGUI_MAIN_H
+#ifndef TBSE_QT_2DGUI_MAIN_H
+#define TBSE_QT_2DGUI_MAIN_H
 
-namespace TGSE
+namespace TBSE
 {
   namespace Qt
   {

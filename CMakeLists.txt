@@ -26,9 +26,9 @@ configure_file (
 add_subdirectory(Core)
 add_subdirectory(GUI)
 
-file(GLOB TGSE_sources *.cpp)
-file(GLOB TGSE_headers *.h)
+file(GLOB TBSE_sources *.cpp)
+file(GLOB TBSE_headers *.h)
 
-add_executable(TGSE ${TGSE_sources} ${TGSE_headers})
-target_link_libraries (TGSE TGSE_Core)
-install(TARGETS TGSE DESTINATION bin)
+add_executable(TBSE ${TBSE_sources} ${TBSE_headers})
+target_link_libraries (TBSE TBSE_Core)
+install(TARGETS TBSE DESTINATION bin)
