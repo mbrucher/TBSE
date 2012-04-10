@@ -1,0 +1,11 @@
+TBSE
+====
+
+TBSE stands for Turn-Based Strategy Engine. It aims at providing a basic framework for developing Turn-Based Strategy Games.
+
+The main goal will be having a working base that can be graphically enhanced by plugins, as well as AI plugins for enhancing the AI behavior.
+
+
+License
+=======
+TBSE license is LGPL 3
