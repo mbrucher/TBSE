@@ -8,6 +8,7 @@
 #include <QMainWindow>
 
 class Ui_TBSEMainWindow;
+class QGraphicsScene;
 
 namespace TBSE
 {
@@ -18,6 +19,8 @@ namespace TBSE
       Q_OBJECT
       Ui_TBSEMainWindow* ui;
       bool mainDockVisible;
+
+      QGraphicsScene* scene;
     public:
       MainWindow();
 
@@ -34,7 +37,7 @@ namespace TBSE
     protected:
       void keyPressEvent(QKeyEvent* event);
 
-      void connect_main_doc();
+      void connect_main_dock();
     };
   }
 }
