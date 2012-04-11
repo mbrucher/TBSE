@@ -16,6 +16,7 @@ namespace TBSE
     MainWindow::MainWindow()
       :mainDockVisible(true)
     {
+      scene = new SceneModel(this);
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
       connect_main_dock();
@@ -33,10 +34,7 @@ namespace TBSE
 
     void MainWindow::new_game()
     {
-      scene = new SceneModel(this);
-      scene->setBackgroundBrush(::Qt::black);
       ui->graphicsView->setScene(scene);
-      ui->graphicsView->setBackgroundBrush(::Qt::black);
     }
 
     void MainWindow::load_game()

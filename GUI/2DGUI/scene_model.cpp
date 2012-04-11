@@ -13,7 +13,7 @@ namespace TBSE
     SceneModel::SceneModel(QObject* parent)
       :QGraphicsScene(parent)
     {
-      QGraphicsRectItem *rect = addRect(QRectF(0, 0, 100, 100));
+      setBackgroundBrush(::Qt::black);
     }
   }
 }

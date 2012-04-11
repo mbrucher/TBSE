@@ -5,7 +5,8 @@
 #include <QApplication>
 #include <QFile>
 
-#include "MainWindow.h"
+#include "../../TBSE_config.h"
+#include "main_window.h"
 
 #include "main.h"
 
@@ -21,8 +22,8 @@ namespace TBSE
     int main(int& argc, char** argv)
     {
       QApplication app(argc, argv);
-      app.setOrganizationName("MB");
-      app.setApplicationName("TBSE");
+      app.setOrganizationName(ORGANISATIONNAME);
+      app.setApplicationName(APPLICATIONNAME);
 
       __for_qt_namespace_issues();
 

@@ -19,8 +19,8 @@ namespace TBSE
       Q_OBJECT
       Ui_TBSEMainWindow* ui;
       bool mainDockVisible;
-
       QGraphicsScene* scene;
+
     public:
       MainWindow();
 
