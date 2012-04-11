@@ -5,6 +5,7 @@
 #ifndef MAIN_REGISTRY_H
 #define MAIN_REGISTRY_H
 
+#include <list>
 #include <map>
 #include <string>
 
@@ -25,6 +26,7 @@ namespace TBSE
 
     TBSE_Core_EXPORT void set_function(const std::string& name, MainRegistryFunction function);
     TBSE_Core_EXPORT MainRegistryFunction get_function(const std::string& name) const;
+    TBSE_Core_EXPORT std::list<std::string> get_plugins() const;
   };
 
   class MainRegistryLoader

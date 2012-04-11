@@ -39,4 +39,16 @@ namespace TBSE
   {
     MainRegistry::get().set_function(name, function);
   }
+
+  std::list<std::string> MainRegistry::get_plugins() const
+  {
+    std::list<std::string> names;
+
+    for(MainRegistryInnerType::const_iterator it = registry.begin(); it != registry.end(); ++it)
+    {
+      names.push_back(it->first);
+    }
+
+    return names;
+  }
 }
