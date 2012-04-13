@@ -18,7 +18,7 @@ namespace TBSE
     {
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
-      connect_main_dock();
+      connectMainDock();
     }
 
     void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -31,19 +31,19 @@ namespace TBSE
       }
     }
 
-    void MainWindow::new_game()
+    void MainWindow::newGame()
     {
     }
 
-    void MainWindow::load_game()
+    void MainWindow::loadGame()
     {
     }
 
-    void MainWindow::save_game()
+    void MainWindow::saveGame()
     {
     }
 
-    void MainWindow::hall_of_fame()
+    void MainWindow::hallOfFame()
     {
     }
 
@@ -51,12 +51,12 @@ namespace TBSE
     {
     }
 
-    void MainWindow::connect_main_dock()
+    void MainWindow::connectMainDock()
     {
-      QObject::connect(ui->newButton, SIGNAL(clicked()), this, SLOT(new_game()));
-      QObject::connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(load_game()));
-      QObject::connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(save_game()));
-      QObject::connect(ui->hofButton, SIGNAL(clicked()), this, SLOT(hall_of_fame()));
+      QObject::connect(ui->newButton, SIGNAL(clicked()), this, SLOT(newGame()));
+      QObject::connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadGame()));
+      QObject::connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(saveGame()));
+      QObject::connect(ui->hofButton, SIGNAL(clicked()), this, SLOT(hallOfFame()));
       QObject::connect(ui->optionsButton, SIGNAL(clicked()), this, SLOT(options()));
     }
 
@@ -73,6 +73,12 @@ namespace TBSE
       QSettings settings;
       restoreGeometry(settings.value("geometry").toByteArray());
       restoreState(settings.value("windowState").toByteArray());
+    }
+
+    QString MainWindow::getGUIKind()
+    {
+      QSettings settings;
+      return settings.value("GUIPlugin").toString();
     }
   }
 }

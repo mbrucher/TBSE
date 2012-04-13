@@ -16,6 +16,6 @@ namespace TBSE
 }
 
 #define TBSEEXPORTGUIPLUGIN(name, function) \
-  TBSE::GUIRegistryLoader gui_registry_loader##name( #name, function);
+  TBSE::GUIRegistryLoader guiRegistryLoader##name( #name, function);
 
 #endif

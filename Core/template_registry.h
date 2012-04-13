@@ -29,13 +29,13 @@ namespace TBSE
   public:
     TBSE_Core_EXPORT static Registry& get();
 
-    void set_function(const std::string& name, RegistryFunction function)
+    void setFunction(const std::string& name, RegistryFunction function)
     {
       std::cout << "Discovered plugin " << name << std::endl;
       registry[name] = function;
     }
 
-    RegistryFunction get_function(const std::string& name) const
+    RegistryFunction getFunction(const std::string& name) const
     {
       RegistryInnerType::const_iterator it = registry.find(name);
       if (it == registry.end())
@@ -45,7 +45,7 @@ namespace TBSE
       return it->second;
     }
 
-    std::list<std::string> get_plugins() const
+    std::list<std::string> getPlugins() const
     {
       std::list<std::string> names;
 
@@ -64,7 +64,7 @@ namespace TBSE
   public:
     RegistryLoader(const std::string& name, typename Registry::RegistryFunction function)
     {
-      Registry::get().set_function(name, function);
+      Registry::get().setFunction(name, function);
     }
   };
 }

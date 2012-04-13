@@ -27,10 +27,10 @@ namespace TBSE
       void displayMainDock(bool);
 
     public slots:
-      void new_game();
-      void load_game();
-      void save_game();
-      void hall_of_fame();
+      void newGame();
+      void loadGame();
+      void saveGame();
+      void hallOfFame();
       void options();
 
     protected:
@@ -38,7 +38,8 @@ namespace TBSE
       void closeEvent(QCloseEvent *event);
       void readSettings();
 
-      void connect_main_dock();
+      void connectMainDock();
+      QString getGUIKind();
     };
   }
 }
