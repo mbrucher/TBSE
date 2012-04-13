@@ -35,6 +35,8 @@ namespace TBSE
 
     protected:
       void keyPressEvent(QKeyEvent* event);
+      void closeEvent(QCloseEvent *event);
+      void readSettings();
 
       void connect_main_dock();
     };

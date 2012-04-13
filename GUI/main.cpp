@@ -33,7 +33,7 @@ namespace TBSE
       app.setStyleSheet(styleSheet);
 
       MainWindow mainWin;
-      mainWin.showMaximized();
+      mainWin.showFullScreen();
       return app.exec();
     }
   }

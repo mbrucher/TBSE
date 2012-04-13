@@ -3,6 +3,7 @@
  */
 
 #include <QKeyEvent>
+#include <QSettings>
 
 #include "ui_main_window.h"
 
@@ -57,6 +58,21 @@ namespace TBSE
       QObject::connect(ui->saveButton, SIGNAL(clicked()), this, SLOT(save_game()));
       QObject::connect(ui->hofButton, SIGNAL(clicked()), this, SLOT(hall_of_fame()));
       QObject::connect(ui->optionsButton, SIGNAL(clicked()), this, SLOT(options()));
+    }
+
+    void MainWindow::closeEvent(QCloseEvent *event)
+    {
+      QSettings settings;
+      settings.setValue("geometry", saveGeometry());
+      settings.setValue("windowState", saveState());
+      QMainWindow::closeEvent(event);
+    }
+
+    void MainWindow::readSettings()
+    {
+      QSettings settings;
+      restoreGeometry(settings.value("geometry").toByteArray());
+      restoreState(settings.value("windowState").toByteArray());
     }
   }
 }
