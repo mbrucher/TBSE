@@ -11,6 +11,8 @@
 #include <stdexcept>
 #include <string>
 
+#include "TBSE_Core_config.h"
+
 namespace TBSE
 {
   template<class RegistryFunction_>
@@ -25,11 +27,7 @@ namespace TBSE
     typedef std::map<std::string, RegistryFunction> RegistryInnerType;
     RegistryInnerType registry;
   public:
-    static Registry& get()
-    {
-      static Registry registry;
-      return registry;
-    }
+    TBSE_Core_EXPORT static Registry& get();
 
     void set_function(const std::string& name, RegistryFunction function)
     {
