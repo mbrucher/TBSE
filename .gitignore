@@ -36,7 +36,6 @@ obj/
 /ipch
 /Win32
 moc*
-*config.h
 *.so
 Makefile
 TGSE
@@ -44,3 +43,5 @@ TGSE
 qrc*.cxx
 *depends
 ui_*.h
+
+/TBSE_config.h

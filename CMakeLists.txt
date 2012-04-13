@@ -30,5 +30,5 @@ file(GLOB TBSE_sources *.cpp)
 file(GLOB TBSE_headers *.h)
 
 add_executable(TBSE ${TBSE_sources} ${TBSE_headers})
-target_link_libraries (TBSE TBSE_Core)
+target_link_libraries (TBSE TBSE_Core TBSE_GUI)
 install(TARGETS TBSE DESTINATION bin)

@@ -5,35 +5,13 @@
 #ifndef MAIN_REGISTRY_H
 #define MAIN_REGISTRY_H
 
-#include <list>
-#include <map>
-#include <string>
-
 #include "TBSE_Core_config.h"
+#include "template_registry.h"
 
 namespace TBSE
 {
-  class MainRegistry
-  {
-    MainRegistry();
-  public:
-    typedef int (*MainRegistryFunction)(int& argc, char** argv);
-  private:
-    typedef std::map<std::string, MainRegistryFunction> MainRegistryInnerType;
-    MainRegistryInnerType registry;
-  public:
-    TBSE_Core_EXPORT static MainRegistry& get();
-
-    TBSE_Core_EXPORT void set_function(const std::string& name, MainRegistryFunction function);
-    TBSE_Core_EXPORT MainRegistryFunction get_function(const std::string& name) const;
-    TBSE_Core_EXPORT std::list<std::string> get_plugins() const;
-  };
-
-  class MainRegistryLoader
-  {
-  public:
-    TBSE_Core_EXPORT MainRegistryLoader(const std::string& name, MainRegistry::MainRegistryFunction function);
-  };
+  typedef Registry<int (*)(int& argc, char** argv)> MainRegistry;
+  typedef RegistryLoader<MainRegistry> MainRegistryLoader;
 }
 
 #define TBSEEXPORTMAINPLUGIN(name, function) \

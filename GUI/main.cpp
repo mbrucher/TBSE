@@ -5,7 +5,7 @@
 #include <QApplication>
 #include <QFile>
 
-#include "../../TBSE_config.h"
+#include "../TBSE_config.h"
 #include "main_window.h"
 
 #include "main.h"

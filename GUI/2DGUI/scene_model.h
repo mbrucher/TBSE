@@ -13,6 +13,7 @@ namespace TBSE
   {
     class SceneModel: public QGraphicsScene
     {
+      Q_OBJECT
     public:
       SceneModel(QObject* parent);
     };

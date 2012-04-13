@@ -5,7 +5,6 @@
 #include <QKeyEvent>
 
 #include "ui_main_window.h"
-#include "scene_model.h"
 
 #include "main_window.h"
 
@@ -16,7 +15,6 @@ namespace TBSE
     MainWindow::MainWindow()
       :mainDockVisible(true)
     {
-      scene = new SceneModel(this);
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
       connect_main_dock();
@@ -34,7 +32,6 @@ namespace TBSE
 
     void MainWindow::new_game()
     {
-      ui->graphicsView->setScene(scene);
     }
 
     void MainWindow::load_game()

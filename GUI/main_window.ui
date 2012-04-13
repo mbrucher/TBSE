@@ -14,15 +14,7 @@
    <string>TBSE</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="autoFillBackground">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <layout class="QGridLayout" name="gridLayout"/>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -107,18 +99,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QDockWidget" name="interactionDock">
-   <property name="features">
-    <set>QDockWidget::NoDockWidgetFeatures</set>
-   </property>
-   <property name="windowTitle">
-    <string/>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>8</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2"/>
   </widget>
  </widget>
  <resources/>

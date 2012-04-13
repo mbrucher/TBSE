@@ -5,11 +5,13 @@
 #ifndef TBSE_QT_2DGUI_MAIN_H
 #define TBSE_QT_2DGUI_MAIN_H
 
+#include "TBSE_GUI_config.h"
+
 namespace TBSE
 {
   namespace Qt
   {
-    int main(int& argc, char** argv);
+    TBSE_GUI_EXPORT int main(int& argc, char** argv);
   }
 }
 
