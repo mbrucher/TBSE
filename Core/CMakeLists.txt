@@ -1,6 +1,6 @@
 
-file(GLOB Core_sources *.cpp)
-file(GLOB Core_headers *.h)
+set(Core_sources gui_registry.cpp plugin.cpp registry.cpp)
+set(Core_headers gui_registry.h plugin.h registry.h TBSE_Core_config.h template_registry.h)
 
 add_library(TBSE_Core SHARED ${Core_sources} ${Core_headers} )
 
