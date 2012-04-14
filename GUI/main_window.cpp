@@ -40,7 +40,10 @@ namespace TBSE
         QMessageBox::warning(this, "TBSE", "no appropriate GUI plugin found");
         exit(1);
       }
-      ui->gridLayout->addWidget((*fun)(ui->centralwidget), 0, 0, 1, 1);
+      QWidget* widget = (*fun)(ui->centralwidget);
+      connect(this, SIGNAL(setNumberPlayers(unsigned int)), widget, SLOT(setNumberPlayers(unsigned int)));
+      connect(this, SIGNAL(setCurrentPlayer(unsigned int)), widget, SLOT(setCurrentPlayer(unsigned int)));
+      ui->gridLayout->addWidget(widget, 0, 0, 1, 1);
     }
 
     void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -56,11 +59,17 @@ namespace TBSE
     void MainWindow::newGame()
     {
       createMainView();
+
+      emit setNumberPlayers(2);
+      emit setCurrentPlayer(0);
     }
 
     void MainWindow::loadGame()
     {
       createMainView();
+
+      emit setNumberPlayers(2);
+      emit setCurrentPlayer(0);
     }
 
     void MainWindow::saveGame()

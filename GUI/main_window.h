@@ -25,6 +25,9 @@ namespace TBSE
 
     signals:
       void displayMainDock(bool);
+      void setNumberPlayers(unsigned int numberOfPlayers);
+      void setCurrentPlayer(unsigned int currentPlayer);
+      void changePlayer();
 
     public slots:
       void newGame();
