@@ -1,6 +1,6 @@
 
-file(GLOB Qt_2DGUI_sources auto_register.cpp scene_model.cpp scene_view.cpp)
-file(GLOB Qt_2DGUI_headers )
+file(GLOB Qt_2DGUI_sources auto_register.cpp scene_model.cpp scene_view.cpp hexagon_item.cpp)
+file(GLOB Qt_2DGUI_headers hexagon_item.h)
 file(GLOB Qt_2DGUI_moc_headers scene_model.h scene_view.h)
 file(GLOB Qt_2DGUI_resources )
 file(GLOB Qt_2DGUI_ui )
