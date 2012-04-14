@@ -14,6 +14,9 @@ namespace TBSE
 {
   namespace Qt
   {
+    /**
+     * The main window class, transmitting information from the outside world to the GUI created by a plugin
+     */
     class MainWindow: public QMainWindow
     {
       Q_OBJECT

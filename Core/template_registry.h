@@ -15,6 +15,9 @@
 
 namespace TBSE
 {
+  /**
+   * A template registry
+   */
   template<class RegistryFunction_>
   class Registry
   {

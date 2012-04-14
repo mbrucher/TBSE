@@ -5,6 +5,7 @@
 #include "../../Core/gui_registry.h"
 #include "scene_view.h"
 
+/// The 2D GUI plugin builder function
 QWidget* create_widgets(QWidget* parent)
 {
   QGraphicsView* graphicsView = new TBSE::Qt::SceneView(parent);
@@ -13,4 +14,5 @@ QWidget* create_widgets(QWidget* parent)
   return graphicsView;
 }
 
+/// The loader instance that will register the builder function
 TBSEEXPORTGUIPLUGIN(2DGUI, create_widgets);

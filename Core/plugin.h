@@ -9,6 +9,7 @@
 
 namespace TBSE
 {
+  /// Function to load all plugins in TBSEPLUGINPATH
   TBSE_Core_EXPORT void visit_all_plugin_paths();
 }
 

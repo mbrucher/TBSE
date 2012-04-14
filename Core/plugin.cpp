@@ -20,7 +20,9 @@
 
 namespace TBSE
 {
+  /// Function to load all plugins in a specific path
   void visit_plugin_path(const std::string& path);
+  /// Function to load one plugin
   void try_load_plugin(const boost::filesystem::directory_entry& entry);
 
   void visit_all_plugin_paths()

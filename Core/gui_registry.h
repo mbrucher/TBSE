@@ -11,7 +11,9 @@ class QWidget;
 
 namespace TBSE
 {
+  /// A registry for GUI plugins
   typedef Registry<QWidget* (*)(QWidget*)> GUIRegistry;
+  /// The class that can auto-register a plugin
   typedef RegistryLoader<GUIRegistry> GUIRegistryLoader;
 }
 

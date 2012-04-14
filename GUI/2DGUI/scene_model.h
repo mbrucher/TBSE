@@ -11,6 +11,9 @@ namespace TBSE
 {
   namespace Qt
   {
+    /**
+     * This class is responsible for storing GUI information for a player
+     */
     class SceneModel: public QGraphicsScene
     {
       Q_OBJECT

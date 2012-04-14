@@ -15,6 +15,9 @@ namespace TBSE
   {
     class SceneModel;
 
+    /**
+     * This class is responsible for displaying one player status
+     */
     class SceneView: public QGraphicsView
     {
       Q_OBJECT
