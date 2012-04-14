@@ -8,7 +8,7 @@
 QWidget* create_widgets(QWidget* parent)
 {
   QGraphicsView* graphicsView = new TBSE::Qt::SceneView(parent);
-  graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+  graphicsView->setObjectName(QString::fromUtf8("mainView"));
 
   return graphicsView;
 }

@@ -21,15 +21,26 @@ namespace TBSE
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
       connectMainDock();
-      GUIRegistry::RegistryFunction fun = GUIRegistry::get().getFunction(getGUIKind().toStdString());
-      if(fun != 0)
+    }
+
+    void MainWindow::createMainView()
+    {
+      QObject* child;
+      Q_FOREACH(child, ui->centralwidget->findChildren<QWidget*>("mainView"))
       {
-          ui->gridLayout->addWidget((*fun)(ui->centralwidget), 0, 0, 1, 1);
+        delete child;
       }
-      else
+      GUIRegistry::RegistryFunction fun;
+      try
+      {
+        fun = GUIRegistry::get().getFunction(getGUIKind().toStdString());
+      }
+      catch(const std::runtime_error& error)
       {
         QMessageBox::warning(this, "TBSE", "no appropriate GUI plugin found");
+        exit(1);
       }
+      ui->gridLayout->addWidget((*fun)(ui->centralwidget), 0, 0, 1, 1);
     }
 
     void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -44,10 +55,12 @@ namespace TBSE
 
     void MainWindow::newGame()
     {
+      createMainView();
     }
 
     void MainWindow::loadGame()
     {
+      createMainView();
     }
 
     void MainWindow::saveGame()

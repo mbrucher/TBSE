@@ -40,6 +40,7 @@ namespace TBSE
 
       void connectMainDock();
       QString getGUIKind();
+      void createMainView();
     };
   }
 }
