@@ -2,13 +2,16 @@
  * \file auto_register.cpp
  */
 
-#include "../../Core/gui_registry.h"
+#include <qgraphicsview.h>
 
-#include "scene_model.h"
+#include "../../Core/gui_registry.h"
 
 QWidget* create_widgets(QWidget* parent)
 {
-  return NULL;
+  QGraphicsView* graphicsView = new QGraphicsView(parent);
+  graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+
+  return graphicsView;
 }
 
 TBSEEXPORTGUIPLUGIN(2DGUI, create_widgets);

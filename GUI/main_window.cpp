@@ -3,9 +3,11 @@
  */
 
 #include <QKeyEvent>
+#include <QMessageBox>
 #include <QSettings>
 
 #include "ui_main_window.h"
+#include "../Core/gui_registry.h"
 
 #include "main_window.h"
 
@@ -19,6 +21,15 @@ namespace TBSE
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
       connectMainDock();
+      GUIRegistry::RegistryFunction fun = GUIRegistry::get().getFunction(getGUIKind().toStdString());
+      if(fun != 0)
+      {
+          ui->gridLayout->addWidget((*fun)(ui->centralwidget), 0, 0, 1, 1);
+      }
+      else
+      {
+        QMessageBox::warning(this, "TBSE", "no appropriate GUI plugin found");
+      }
     }
 
     void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -78,7 +89,7 @@ namespace TBSE
     QString MainWindow::getGUIKind()
     {
       QSettings settings;
-      return settings.value("GUIPlugin").toString();
+      return settings.value("GUIPlugin", "2DGUI").toString();
     }
   }
 }
