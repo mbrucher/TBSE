@@ -17,11 +17,23 @@ namespace TBSE
   namespace GUI
   {
     MainWindow::MainWindow()
-      :mainDockVisible(true), model(NULL)
+      :mainDockVisible(true), coreModel(NULL)
     {
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
       connectMainDock();
+    }
+
+    void MainWindow::createCoreModel()
+    {
+      delete coreModel;
+      coreModel = new Core::CoreModel;
+
+      connectCoreModel();
+    }
+
+    void MainWindow::connectCoreModel()
+    {
     }
 
     void MainWindow::createMainView()
@@ -42,9 +54,14 @@ namespace TBSE
         exit(1);
       }
       QWidget* widget = (*fun)(ui->centralwidget);
-      connect(this, SIGNAL(setNumberPlayers(unsigned int)), widget, SLOT(setNumberPlayers(unsigned int)));
-      connect(this, SIGNAL(setCurrentPlayer(unsigned int)), widget, SLOT(setCurrentPlayer(unsigned int)));
       ui->gridLayout->addWidget(widget, 0, 0, 1, 1);
+      connectMainView(widget);
+    }
+
+    void MainWindow::connectMainView(QWidget* mainView)
+    {
+      connect(this, SIGNAL(setNumberPlayers(unsigned int)), mainView, SLOT(setNumberPlayers(unsigned int)));
+      connect(this, SIGNAL(setCurrentPlayer(unsigned int)), mainView, SLOT(setCurrentPlayer(unsigned int)));
     }
 
     void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -59,6 +76,7 @@ namespace TBSE
 
     void MainWindow::newGame()
     {
+      createCoreModel();
       createMainView();
 
       emit setNumberPlayers(2);
@@ -67,6 +85,7 @@ namespace TBSE
 
     void MainWindow::loadGame()
     {
+      createCoreModel();
       createMainView();
 
       emit setNumberPlayers(2);

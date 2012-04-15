@@ -51,8 +51,11 @@ namespace TBSE
       void connectMainDock();
       QString getGUIKind();
       void createMainView();
+      void connectMainView(QWidget* mainView);
+      void createCoreModel();
+      void connectCoreModel();
 
-      Core::CoreModel* model;
+      Core::CoreModel* coreModel;
     };
   }
 }
