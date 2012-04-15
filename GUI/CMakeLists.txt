@@ -1,9 +1,9 @@
 
-set(GLOB Qt_GUI_sources main.cpp main_window.cpp)
-set(GLOB Qt_GUI_headers main.h TBSE_GUI_config.h)
-set(GLOB Qt_GUI_moc_headers main_window.h)
-set(GLOB Qt_GUI_resources resources.qrc)
-set(GLOB Qt_GUI_ui main_window.ui)
+set(Qt_GUI_sources main.cpp main_window.cpp)
+set(Qt_GUI_headers main.h TBSE_GUI_config.h)
+set(Qt_GUI_moc_headers main_window.h)
+set(Qt_GUI_resources resources.qrc)
+set(Qt_GUI_ui main_window.ui)
 
 QT4_WRAP_CPP(Qt_GUI_moc_sources ${Qt_GUI_moc_headers})
 QT4_WRAP_UI(Qt_GUI_headers_UI ${Qt_GUI_ui})

@@ -8,15 +8,16 @@
 
 #include "ui_main_window.h"
 #include "../Core/gui_registry.h"
+#include "../Core/core_model.h"
 
 #include "main_window.h"
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     MainWindow::MainWindow()
-      :mainDockVisible(true)
+      :mainDockVisible(true), model(NULL)
     {
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);

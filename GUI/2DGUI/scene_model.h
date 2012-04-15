@@ -9,7 +9,7 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     /**
      * This class is responsible for storing GUI information for a player

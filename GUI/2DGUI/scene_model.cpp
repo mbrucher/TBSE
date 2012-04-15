@@ -8,7 +8,7 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     SceneModel::SceneModel(QObject* parent)
       :QGraphicsScene(parent)
