@@ -40,7 +40,7 @@ namespace TBSE
 
     RegistryFunction getFunction(const std::string& name) const
     {
-      RegistryInnerType::const_iterator it = registry.find(name);
+      typename RegistryInnerType::const_iterator it = registry.find(name);
       if (it == registry.end())
       {
         throw std::runtime_error("No such loaded plugins");
