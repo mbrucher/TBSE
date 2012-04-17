@@ -1,6 +1,6 @@
 
 set(Core_sources gui_registry.cpp plugin.cpp registry.cpp core_model.cpp)
-set(Core_headers gui_registry.h plugin.h registry.h TBSE_Core_config.h template_registry.h core_model.h)
+set(Core_headers core_model.h gui_registry.h iplayer.h plugin.h registry.h TBSE_Core_config.h template_registry.h terrain_element.h)
 
 add_library(TBSE_Core SHARED ${Core_sources} ${Core_headers} )
 
