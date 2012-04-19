@@ -5,6 +5,8 @@
 #ifndef COREMODEL_H
 #define COREMODEL_H
 
+#include <QObject>
+
 #include <boost/ptr_container/ptr_vector.hpp>
 
 #include "iplayer.h"
@@ -15,8 +17,10 @@ namespace TBSE
 {
   namespace Core
   {
-    class CoreModel
+    class CoreModel: public QObject
     {
+      Q_OBJECT
+
       boost::ptr_vector<TerrainElement> terrain;
       boost::ptr_vector<IPlayer> players;
     public:
