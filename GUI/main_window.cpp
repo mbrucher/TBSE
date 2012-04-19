@@ -27,7 +27,7 @@ namespace TBSE
     void MainWindow::createCoreModel()
     {
       delete coreModel;
-      //coreModel = new Core::CoreModel;
+      coreModel = Core::CoreModel::createModel();
 
       connectCoreModel();
     }
