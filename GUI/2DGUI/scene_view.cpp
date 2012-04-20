@@ -9,6 +9,11 @@
 #include "scene_model.h"
 #include "scene_view.h"
 
+static void __for_qt_namespace_issues()
+{
+  Q_INIT_RESOURCE(resources_2dgui);
+}
+
 namespace TBSE
 {
   namespace Qt
@@ -16,6 +21,7 @@ namespace TBSE
     SceneView::SceneView(QWidget* parent)
       :QGraphicsView(parent)
     {
+      __for_qt_namespace_issues();
     }
 
     void SceneView::setNumberPlayers(unsigned int numberOfPlayers)

@@ -13,6 +13,11 @@ namespace TBSE
   {
     class HexagonItem: public QGraphicsPixmapItem
     {
+    public:
+      HexagonItem(const QPixmap& pixmap)
+      :QGraphicsPixmapItem(pixmap)
+      {
+      }
     };
   }
 }

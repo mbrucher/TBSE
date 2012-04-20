@@ -1,0 +1,5 @@
+<RCC>
+<qresource prefix="/TBSE/2DGUI">
+    <file>resources/hex_template.png</file>
+</qresource>
+</RCC>
