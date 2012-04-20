@@ -9,10 +9,15 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     class HexagonItem: public QGraphicsPixmapItem
     {
+    public:
+      HexagonItem(const QPixmap& pixmap)
+      :QGraphicsPixmapItem(pixmap)
+      {
+      }
     };
   }
 }

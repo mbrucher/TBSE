@@ -19,6 +19,9 @@ namespace TBSE
       Q_OBJECT
     public:
       SceneModel(QObject* parent);
+
+    protected:
+      void populate_stub();
     };
   }
 }
