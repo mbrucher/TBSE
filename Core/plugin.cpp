@@ -69,7 +69,6 @@ namespace TBSE
   void try_load_plugin(const boost::filesystem::directory_entry& entry)
   {
     std::string path = entry.path().string();
-    std::cout << path << std::endl;
 #ifdef _WIN32
     if (boost::algorithm::iends_with(path, ".dll"))
     {
