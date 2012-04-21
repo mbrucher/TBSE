@@ -5,6 +5,10 @@
 #ifndef TERRAINELEMENT_H
 #define TERRAINELEMENT_H
 
+#include <boost/ptr_container/ptr_list.hpp>
+
+#include "terrain_modifier.h"
+
 namespace TBSE
 {
   namespace Core
@@ -14,6 +18,15 @@ namespace TBSE
      */
     class TerrainElement
     {
+      boost::ptr_list<TerrainModifier> modifiers;
+      int type;
+
+    public:
+      int addModifier(std::unique_ptr<TerrainModifier>& modifier);
+      std::unique_ptr<TerrainModifier> removeModifier(int modifierID);
+      TerrainModifier* retrieveModifier(int modifierID);
+      /// Return the terrain type (water, beach...)
+      int getType() const;
     };
   }
 }

@@ -1,5 +1,5 @@
-set(Core_sources gui_registry.cpp plugin.cpp registry.cpp core_model.cpp)
-set(Core_headers gui_registry.h iplayer.h plugin.h registry.h TBSE_Core_config.h template_registry.h terrain_element.h)
+set(Core_sources gui_registry.cpp plugin.cpp registry.cpp core_model.cpp terrain_element.cpp)
+set(Core_headers gui_registry.h iplayer.h plugin.h registry.h TBSE_Core_config.h template_registry.h terrain_element.h terrain_modifier.h)
 set(Core_moc_headers core_model.h)
 
 QT4_WRAP_CPP(Qt_Core_moc_sources ${Core_moc_headers})
