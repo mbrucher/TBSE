@@ -1,6 +1,10 @@
 cmake_minimum_required (VERSION 2.6)
 project (TBSE)
 
+SET( CMAKE_MODULE_PATH
+     "${PROJECT_SOURCE_DIR}/cmake"
+     "${CMAKE_MODULE_PATH}" )
+
 set (TBSE_VERSION_MAJOR 0)
 set (TBSE_VERSION_MINOR 0)
 

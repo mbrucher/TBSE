@@ -52,7 +52,7 @@ namespace TBSE
     {
       std::list<std::string> names;
 
-      for(RegistryInnerType::const_iterator it = registry.begin(); it != registry.end(); ++it)
+      for(typename RegistryInnerType::const_iterator it = registry.begin(); it != registry.end(); ++it)
       {
         names.push_back(it->first);
       }

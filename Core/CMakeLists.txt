@@ -9,7 +9,7 @@ add_library(TBSE_Core SHARED ${Core_sources} ${Qt_Core_moc_sources} ${Core_heade
 if(WIN32)
   target_link_libraries (TBSE_Core ${QT_LIBRARIES})
 else()
-  target_link_libraries (TBSE_Core boost_filesystem ${QT_LIBRARIES})
+  target_link_libraries (TBSE_Core boost_filesystem boost_system ${QT_LIBRARIES})
 endif()
 
 if(WIN32)
