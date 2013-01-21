@@ -8,7 +8,7 @@ namespace TBSE
 {
   namespace Core
   {
-    CoreModel* CoreModel::createModel()
+    CoreModel* CoreModel::createModel(const std::string& model)
     {
       return new CoreModel;
     }

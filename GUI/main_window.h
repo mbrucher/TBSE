@@ -52,7 +52,7 @@ namespace TBSE
       QString getGUIKind();
       void createMainView();
       void connectMainView(QWidget* mainView);
-      void createCoreModel();
+      void createCoreModel(const std::string& model);
       void connectCoreModel();
 
       Core::CoreModel* coreModel;

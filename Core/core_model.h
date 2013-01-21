@@ -5,6 +5,8 @@
 #ifndef COREMODEL_H
 #define COREMODEL_H
 
+#include <string>
+
 #include <QObject>
 
 #include <boost/ptr_container/ptr_vector.hpp>
@@ -24,7 +26,7 @@ namespace TBSE
       boost::ptr_vector<TerrainElement> terrain;
       boost::ptr_vector<IPlayer> players;
     public:
-      static TBSE_Core_EXPORT CoreModel* createModel();
+      static TBSE_Core_EXPORT CoreModel* createModel(const std::string& model);
     };
   }
 }

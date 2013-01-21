@@ -24,10 +24,10 @@ namespace TBSE
       connectMainDock();
     }
 
-    void MainWindow::createCoreModel()
+    void MainWindow::createCoreModel(const std::string& model)
     {
       delete coreModel;
-      coreModel = Core::CoreModel::createModel();
+      coreModel = Core::CoreModel::createModel(model);
 
       connectCoreModel();
     }
@@ -76,16 +76,25 @@ namespace TBSE
 
     void MainWindow::newGame()
     {
-      createCoreModel();
+      // Select an appropriate game
+      std::string selected_game = "";
+      if(selected_game == "")
+        return;
+      // Load the model
+      createCoreModel(selected_game);
+      // Load the GUI accordingly
       createMainView();
-
       emit setNumberPlayers(2);
       emit setCurrentPlayer(0);
     }
 
     void MainWindow::loadGame()
     {
-      createCoreModel();
+      std::string selected_game = "";
+      if(selected_game == "")
+        return;
+      // Load the game
+      createCoreModel(selected_game);
       createMainView();
 
       emit setNumberPlayers(2);
