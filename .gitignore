@@ -38,14 +38,13 @@ obj/
 moc*
 *.so
 Makefile
-TBSE
 /install_manifest.txt
 qrc*.cxx
 *depends
 ui_*.h
 CMakeScripts
 *.xcodeproj
+bin
+lib
 
 /TBSE_config.h
-
-lib
