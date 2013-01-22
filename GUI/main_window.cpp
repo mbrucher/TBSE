@@ -77,7 +77,7 @@ namespace TBSE
     void MainWindow::newGame()
     {
       // Select an appropriate game
-      std::string selected_game = "";
+      std::string selected_game = "share/TBSE/maps/basic.TBSEgame";
       if(selected_game == "")
         return;
       // Load the model
