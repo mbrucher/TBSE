@@ -12,7 +12,11 @@ class QGraphicsScene;
 
 namespace TBSE
 {
-  namespace Qt
+  namespace Core
+  {
+    class CoreModel;
+  }
+  namespace GUI
   {
     /**
      * The main window class, transmitting information from the outside world to the GUI created by a plugin
@@ -47,9 +51,13 @@ namespace TBSE
       void connectMainDock();
       QString getGUIKind();
       void createMainView();
+      void connectMainView(QWidget* mainView);
+      void createCoreModel(const std::string& model);
+      void connectCoreModel();
+
+      Core::CoreModel* coreModel;
     };
   }
 }
 
 #endif
-

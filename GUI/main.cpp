@@ -17,7 +17,7 @@ static void __for_qt_namespace_issues()
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     int main(int& argc, char** argv)
     {

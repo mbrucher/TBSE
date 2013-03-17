@@ -11,7 +11,7 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     class SceneModel;
 

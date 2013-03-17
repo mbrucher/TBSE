@@ -2,6 +2,9 @@
  * \file TBSE_config.h
  */
 
+#ifndef TBSE_CONFIG_H_
+#define TBSE_CONFIG_H_
+ 
 /// Hash for the Git version
 #define TBSE_GIT_HASH_SHORT ${TBSE_GIT_HASH_SHORT}
 
@@ -9,3 +12,5 @@
 const char* APPLICATIONNAME = "TBSE";
 /// Organisation name used to save and store settings
 const char* ORGANISATIONNAME = "TBSE";
+
+#endif

@@ -11,5 +11,5 @@ int main(int argc, char** argv)
 {
   TBSE::visit_all_plugin_paths();
 
-  return TBSE::Qt::main(argc, argv);
+  return TBSE::GUI::main(argc, argv);
 }

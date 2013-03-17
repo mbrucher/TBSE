@@ -73,12 +73,20 @@ namespace TBSE
     if (boost::algorithm::iends_with(path, ".dll"))
     {
       HMODULE hModule = LoadLibraryEx(path.c_str(), NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE);
+      if(hModule)
+      {
+        std::cout << "Loaded library " << path << std::endl;
+      }
     }
 #else
     void* lib_handle = dlopen(path.c_str(), RTLD_NOW);
     if (!lib_handle)
     {
       std::cout << "    Path " << path << " is not a plugin: " << dlerror() << std::endl;
+    }
+    else
+    {
+      std::cout << "Loaded library " << path << std::endl;
     }
 
 #endif

@@ -8,7 +8,7 @@
 /// The 2D GUI plugin builder function
 QWidget* create_widgets(QWidget* parent)
 {
-  QGraphicsView* graphicsView = new TBSE::Qt::SceneView(parent);
+  QGraphicsView* graphicsView = new TBSE::GUI::SceneView(parent);
   graphicsView->setObjectName(QString::fromUtf8("mainView"));
 
   return graphicsView;

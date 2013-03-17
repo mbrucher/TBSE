@@ -9,7 +9,7 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     /// The main function of the application
     TBSE_GUI_EXPORT int main(int& argc, char** argv);

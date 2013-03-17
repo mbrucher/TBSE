@@ -8,19 +8,32 @@
 
 #include "ui_main_window.h"
 #include "../Core/gui_registry.h"
+#include "../Core/core_model.h"
 
 #include "main_window.h"
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     MainWindow::MainWindow()
-      :mainDockVisible(true)
+      :mainDockVisible(true), coreModel(NULL)
     {
       ui = new Ui_TBSEMainWindow;
       ui->setupUi(this);
       connectMainDock();
+    }
+
+    void MainWindow::createCoreModel(const std::string& model)
+    {
+      delete coreModel;
+      coreModel = Core::CoreModel::createModel(model);
+
+      connectCoreModel();
+    }
+
+    void MainWindow::connectCoreModel()
+    {
     }
 
     void MainWindow::createMainView()
@@ -41,9 +54,14 @@ namespace TBSE
         exit(1);
       }
       QWidget* widget = (*fun)(ui->centralwidget);
-      connect(this, SIGNAL(setNumberPlayers(unsigned int)), widget, SLOT(setNumberPlayers(unsigned int)));
-      connect(this, SIGNAL(setCurrentPlayer(unsigned int)), widget, SLOT(setCurrentPlayer(unsigned int)));
       ui->gridLayout->addWidget(widget, 0, 0, 1, 1);
+      connectMainView(widget);
+    }
+
+    void MainWindow::connectMainView(QWidget* mainView)
+    {
+      connect(this, SIGNAL(setNumberPlayers(unsigned int)), mainView, SLOT(setNumberPlayers(unsigned int)));
+      connect(this, SIGNAL(setCurrentPlayer(unsigned int)), mainView, SLOT(setCurrentPlayer(unsigned int)));
     }
 
     void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -58,14 +76,25 @@ namespace TBSE
 
     void MainWindow::newGame()
     {
+      // Select an appropriate game
+      std::string selected_game = "share/TBSE/maps/basic.TBSEgame";
+      if(selected_game == "")
+        return;
+      // Load the model
+      createCoreModel(selected_game);
+      // Load the GUI accordingly
       createMainView();
-
       emit setNumberPlayers(2);
       emit setCurrentPlayer(0);
     }
 
     void MainWindow::loadGame()
     {
+      std::string selected_game = "";
+      if(selected_game == "")
+        return;
+      // Load the game
+      createCoreModel(selected_game);
       createMainView();
 
       emit setNumberPlayers(2);
@@ -115,4 +144,3 @@ namespace TBSE
     }
   }
 }
-

@@ -9,7 +9,7 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     /**
      * This class is responsible for storing GUI information for a player
@@ -19,6 +19,9 @@ namespace TBSE
       Q_OBJECT
     public:
       SceneModel(QObject* parent);
+
+    protected:
+      void populate_stub();
     };
   }
 }

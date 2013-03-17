@@ -11,11 +11,12 @@
 
 namespace TBSE
 {
-  namespace Qt
+  namespace GUI
   {
     SceneView::SceneView(QWidget* parent)
       :QGraphicsView(parent)
     {
+      scale(4, 4);
     }
 
     void SceneView::setNumberPlayers(unsigned int numberOfPlayers)
