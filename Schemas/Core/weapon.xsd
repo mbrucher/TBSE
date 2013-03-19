@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="WeaponCapability">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="unitType" type="xs:integer" />
+        <xs:element name="piercingModifier" type="xs:integer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Weapon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ammunition" type="xs:integer" />
+        <xs:element name="strength" type="xs:integer" />
+        <xs:element name="range" type="xs:integer" />
+        <xs:element name="weapons" type="WeaponCapability" maxOccurs='unbounded' />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

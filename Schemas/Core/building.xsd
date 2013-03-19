@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="weapon.xsd"/>
+  <xs:element name="BaseBuilding">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:integer" />
+        <xs:element name="type" type="xs:integer" />
+        <xs:element name="health" type="xs:integer" />
+        <xs:element name="armor" type="xs:integer" />
+        <xs:element name="shield" type="xs:integer" />
+        <xs:element name="radarRange" type="xs:integer" />
+        <xs:element name="cargoSize" type="xs:integer" />
+        <xs:element name="weapons" type="Weapon" maxOccurs='unbounded' />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
