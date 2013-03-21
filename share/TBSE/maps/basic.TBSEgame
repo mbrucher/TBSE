@@ -1,14 +1,18 @@
-<TBSE>
+<TBSEMap>
   <map width="10" height="10">
     <line id="0"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="1"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="2"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="3"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
-    <line id="4"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
-    <line id="5"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
+    <line id="4"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">1</col><col id="5">1</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
+    <line id="5"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">1</col><col id="5">1</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="6"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="7"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="8"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
     <line id="9"><col id="0">0</col><col id="1">0</col><col id="2">0</col><col id="3">0</col><col id="4">0</col><col id="5">0</col><col id="6">0</col><col id="7">0</col><col id="8">0</col><col id="9">0</col></line>
   </map>
-</TBSE>
+  <type>
+    <package>default</package>
+    <players>2</players>
+  </type>
+</TBSEMap>
