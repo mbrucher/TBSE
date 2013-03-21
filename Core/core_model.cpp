@@ -10,7 +10,7 @@ namespace TBSE
   {
     CoreModel* CoreModel::createModel(const std::string& model)
     {
-      return new CoreModel;
+      return new CoreModel; // TODO Need to use the XSD generated file
     }
     
     unsigned long CoreModel::getHeight() const

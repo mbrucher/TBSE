@@ -24,7 +24,7 @@ namespace TBSE
       :QGraphicsScene(parent)
     {
       setBackgroundBrush(::Qt::black);
-      populate_stub();
+      populate_stub(); // TODO Need to access the core model elements
     }
 
     void SceneModel::populate_stub()
