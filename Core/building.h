@@ -13,6 +13,7 @@ namespace TBSE
   {
     class Building
     {
+    protected:
       BaseBuilding* base;
 
       BaseBuilding state;

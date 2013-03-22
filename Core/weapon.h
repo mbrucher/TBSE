@@ -13,12 +13,14 @@ namespace TBSE
   {
     class WeaponCapability
     {
+    protected:
       int unitType;
       int piercingModifier;
     };
 
     class Weapon
     {
+    protected:
       int ammunition;
       int strength;
       int range;

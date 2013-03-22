@@ -15,6 +15,7 @@ namespace TBSE
   {
     class BaseBuilding
     {
+    protected:
       std::vector<Weapon> weapons;
 
       int type;

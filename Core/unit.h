@@ -13,6 +13,7 @@ namespace TBSE
   {
     class Unit
     {
+    protected:
       BaseUnit* base;
 
       BaseUnit state;
