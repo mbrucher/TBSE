@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 
 def parse_xsd(filename):
-  pass
+  from xml.dom.minidom import parse
+  f = open(filename)
+  xmlstructure = parse(f)
+  for child in xmlstructure.getElementsByTagNameNS("xs:schema", ""):
+    print child
+  structure = []
+  return structure
 
 def generate_header(structure):
   pass
