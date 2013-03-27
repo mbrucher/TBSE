@@ -1,6 +1,11 @@
 
-xsd_to_source(${CMAKE_CURRENT_SOURCE_DIR}/../Schemas/Core/base_building.xsd)
-set(Core_generated ${CMAKE_CURRENT_SOURCE_DIR}/../Generated/Core/base_building.h ${CMAKE_CURRENT_SOURCE_DIR}/../Generated/Core/base_building.cpp )
+set(Core_xsd ${CMAKE_CURRENT_SOURCE_DIR}/../Schemas/Core/base_building.xsd
+  ${CMAKE_CURRENT_SOURCE_DIR}/../Schemas/Core/base_map.xsd
+  ${CMAKE_CURRENT_SOURCE_DIR}/../Schemas/Core/base_unit.xsd
+  ${CMAKE_CURRENT_SOURCE_DIR}/../Schemas/Core/weapon.xsd
+  )
+
+xsd_to_source( "${Core_xsd}" Core_generated)
 
 set(Core_sources gui_registry.cpp plugin.cpp core_model.cpp terrain_element.cpp)
 set(Core_headers base_building.h base_unit.h building.h gui_registry.h iplayer.h plugin.h TBSE_Core_config.h template_registry.h terrain_element.h terrain_modifier.h unit.h weapon.h)

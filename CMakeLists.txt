@@ -27,8 +27,8 @@ configure_file (
   "${PROJECT_BINARY_DIR}/TBSE_config.h"
   )
 
-function(xsd_to_source)
- foreach(XSDFILENAME ${ARGN})
+function(xsd_to_source Input_List Output_Generated)
+ foreach(XSDFILENAME ${Input_List})
   STRING(  REGEX REPLACE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_BINARY_DIR}" FILENAME ${XSDFILENAME} )
   STRING(  REGEX REPLACE "Schemas" "Generated" FILE_NAME ${FILENAME} )
   STRING(  REGEX REPLACE "xsd" "h" FILE_NAME_H ${FILE_NAME} )
@@ -38,7 +38,9 @@ function(xsd_to_source)
    COMMAND python ${CMAKE_SOURCE_DIR}/Scripts/xsd_to_source.py ${XSDFILENAME}
    DEPENDS ${XSDFILENAME}
    )
+ set(FILES ${FILES} ${FILE_NAME_H} ${FILE_NAME_CPP})
  endforeach()
+ set(${Output_Generated} ${FILES} PARENT_SCOPE)
 endfunction()
 
 add_subdirectory(Core)
