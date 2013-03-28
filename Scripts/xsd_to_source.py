@@ -121,7 +121,7 @@ struct %s
 public:
 %s
 
-  void serialize(QDomElement* node);
+  void serialize(QDomElement* node) const;
   void unserialize(const QDomElement* node);
 protected:
 %s
@@ -153,8 +153,31 @@ def generate_includes(structure, f):
  */
 
 #include "%s"
+#include <QtXml/QDomElement>
+
 """ % (os.path.basename(header_file), structure.filename, os.path.basename(header_file)))
 
+def generate_serializer(structure, f):
+  """
+  Write serializer implementation
+  """
+  for struct in structure.objects:
+    f.write("""void %s::serialize(QDomElement* node) const
+{
+}
+
+""" % (struct.name))
+
+def generate_deserializer(structure, f):
+  """
+  Write deserializer implementation
+  """
+  for struct in structure.objects:
+    f.write("""void %s::unserialize(const QDomElement* node)
+{
+}
+
+""" % (struct.name))
 
 def generate_source(structure):
   """
@@ -165,6 +188,8 @@ def generate_source(structure):
   f = open(filename, "w")
 
   generate_includes(structure, f)
+  generate_serializer(structure, f)
+  generate_deserializer(structure, f)
 
 if __name__ == "__main__":
   import sys
