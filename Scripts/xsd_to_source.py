@@ -20,6 +20,7 @@ def parse_xsd(filename):
     if kind == "element":
       struct = XSDContent()
       struct.name = child.attrib["name"]
+      struct.attributes = [(subchild.attrib["name"], subchild.attrib["type"]) for subchild in child[0][0]]
       structure.objects.append(struct)
 
   return structure
@@ -62,14 +63,24 @@ def generate_include_header(structure, f):
 #include <%s>
         """ % header["name"])
 
+def generate_accessors(struct):
+  return ""
+
+def generate_attributes(struct):
+  return ""
+
 def generate_prototypes(structure, f):
   for struct in structure.objects:
     f.write("""
 struct %s
 {
-%s
+public:
+  %s
+
+protected:
+  %s
 };
-""" % (struct.name, ""))
+""" % (struct.name, generate_accessors(struct), generate_attributes(struct)))
 
 def generate_header(structure):
   filename = structure.filename + '.h'
