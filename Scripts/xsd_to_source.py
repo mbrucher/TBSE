@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+type_map = {
+  'integer' : 'int',
+  'string' : 'std::string',
+  }
+
 class XSDContent(object):
   pass
 
@@ -12,7 +17,7 @@ def parse_xsd(filename):
   xmlstructure = parse(f)
   structure = XSDContent()
   structure.filename = filename.replace('Schemas', 'Generated').replace('.xsd', '')
-  structure.includes = []
+  structure.includes = [{"relative":False, "name":"string"}]
   structure.objects = []
 
   for child in xmlstructure.getroot():
@@ -23,7 +28,8 @@ def parse_xsd(filename):
     if kind == "element":
       struct = XSDContent()
       struct.name = child.attrib["name"]
-      struct.attributes = [(subchild.attrib["name"], subchild.attrib["type"]) for subchild in child[0][0]]
+      child.attrib["name"] = child.attrib["name"]
+      struct.attributes = [(subchild.attrib["name"], subchild.attrib["type"].split(':')[-1]) for subchild in child[0][0]]
       structure.objects.append(struct)
 
   return structure
@@ -51,6 +57,9 @@ def generate_open_guard(structure, f):
 
 #ifndef %s
 #define %s
+
+class QDomElement;
+
 """ % (os.path.basename(header_file), structure.filename, basename, basename))
 
 def generate_close_guard(structure, f):
@@ -82,13 +91,24 @@ def generate_accessors(struct):
   """
   Writes the accesors for the attributes
   """
-  return ""
+  types = [type_map.get(attribute[1], attribute[1]) for attribute in struct.attributes]
+  get_variable = [attribute[0].capitalize() for attribute in struct.attributes]
+  return "\n".join(["""  const %s& get%s() const
+  {
+    return %s;
+  }
+
+  %s& get%s()
+  {
+    return %s;
+  }
+""" % (type, get, attributes[0], type, get, attributes[0]) for (attributes, type, get) in zip(struct.attributes, types, get_variable)])
 
 def generate_attributes(struct):
   """
   Writes the declaration for all the attributes
   """
-  return ""
+  return "\n".join(["  %s %s;" % (type_map.get(attribute[1], attribute[1]), attribute[0]) for attribute in struct.attributes])
 
 def generate_prototypes(structure, f):
   """
@@ -99,10 +119,12 @@ def generate_prototypes(structure, f):
 struct %s
 {
 public:
-  %s
+%s
 
+  void serialize(QDomElement* node);
+  void unserialize(const QDomElement* node);
 protected:
-  %s
+%s
 };
 """ % (struct.name, generate_accessors(struct), generate_attributes(struct)))
 
