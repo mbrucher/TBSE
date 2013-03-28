@@ -4,6 +4,9 @@ class XSDContent(object):
   pass
 
 def parse_xsd(filename):
+  """
+  Parses an XSD file in a crude manner and populates a simple structure
+  """
   from xml.etree.ElementTree import parse
   f = open(filename)
   xmlstructure = parse(f)
@@ -26,12 +29,18 @@ def parse_xsd(filename):
   return structure
 
 def generate_folders(filename):
+  """
+  Creates the destination folders if needed
+  """
   import os
   dirname = os.path.dirname(filename)
   if not os.path.exists(dirname):
     os.makedirs(dirname)
 
 def generate_open_guard(structure, f):
+  """
+  Writes in the file a specific block guard
+  """
   import os
   header_file = structure.filename + '.h'
   basename = os.path.basename(header_file).upper().replace('.', '_')
@@ -45,6 +54,9 @@ def generate_open_guard(structure, f):
 """ % (os.path.basename(header_file), structure.filename, basename, basename))
 
 def generate_close_guard(structure, f):
+  """
+  Closes the specific block guard
+  """
   import os
   header_file = structure.filename + '.h'
   basename = os.path.basename(header_file).upper().replace('.', '_')
@@ -53,6 +65,9 @@ def generate_close_guard(structure, f):
 """ % (basename))
 
 def generate_include_header(structure, f):
+  """
+  Writes in the file all needed inclusions
+  """
   for header in structure.includes:
     if header["relative"]:
       f.write("""
@@ -64,12 +79,21 @@ def generate_include_header(structure, f):
         """ % header["name"])
 
 def generate_accessors(struct):
+  """
+  Writes the accesors for the attributes
+  """
   return ""
 
 def generate_attributes(struct):
+  """
+  Writes the declaration for all the attributes
+  """
   return ""
 
 def generate_prototypes(structure, f):
+  """
+  Writes the prototypes for all functions
+  """
   for struct in structure.objects:
     f.write("""
 struct %s
@@ -83,6 +107,9 @@ protected:
 """ % (struct.name, generate_accessors(struct), generate_attributes(struct)))
 
 def generate_header(structure):
+  """
+  Generates the header associated to an XSD parse
+  """
   filename = structure.filename + '.h'
   generate_folders(filename)
   f = open(filename, "w")
@@ -93,6 +120,9 @@ def generate_header(structure):
   generate_close_guard(structure, f)
 
 def generate_includes(structure, f):
+  """
+  Writes to the source the inclusion of the associated header
+  """
   import os
   header_file = structure.filename + '.h'
   f.write("""/**
@@ -105,6 +135,9 @@ def generate_includes(structure, f):
 
 
 def generate_source(structure):
+  """
+  Generates the source file associated to an XSD parse
+  """
   filename = structure.filename + '.cpp'
   generate_folders(filename)
   f = open(filename, "w")
