@@ -5,7 +5,7 @@
 #ifndef BUILDING_H
 #define BUILDING_H
 
-#include "base_building.h"
+#include <Generated/Core/base_building.h>
 
 namespace TBSE
 {

@@ -5,7 +5,7 @@
 #ifndef UNIT_H
 #define UNIT_H
 
-#include "base_unit.h"
+#include <Generated/Core/base_unit.h>
 
 namespace TBSE
 {

@@ -15,9 +15,10 @@ def parse_xsd(filename):
   for child in xmlstructure.getroot():
     kind = child.tag.split("}")[1]
     if kind == "include":
-      pass
+      header_name = child.attrib["schemaLocation"].replace("xsd", "h")
+      structure.includes.append({"relative":True, "name":header_name})
     if kind == "element":
-      pass
+      structure.objects.append(child.attrib["name"])
 
   return structure
 
@@ -48,12 +49,34 @@ def generate_close_guard(structure, f):
 #endif /* %s */
 """ % (basename))
 
+def generate_include_header(structure, f):
+  for header in structure.includes:
+    if header["relative"]:
+      f.write("""
+#include "%s"
+""" % header["name"])
+    else:
+      f.write("""
+#include <%s>
+        """ % header["name"])
+
+def generate_prototypes(structure, f):
+  for struct in structure.objects:
+    f.write("""
+struct %s
+{
+%s
+};
+""" % (struct, ""))
+
 def generate_header(structure):
   filename = structure.filename + '.h'
   generate_folders(filename)
   f = open(filename, "w")
 
   generate_open_guard(structure, f)
+  generate_include_header(structure, f)
+  generate_prototypes(structure, f)
   generate_close_guard(structure, f)
 
 def generate_includes(structure, f):

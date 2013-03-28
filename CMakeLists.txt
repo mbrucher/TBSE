@@ -15,7 +15,7 @@ GIT_TREE_INFO( . TBSE_GIT )
 FIND_PACKAGE(Boost REQUIRED)
 
 link_directories ( ${Boost_LIBRARY_DIRS} )
-include_directories ( ${Boost_INCLUDE_DIRS} )
+include_directories ( ${Boost_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} )
 
 FIND_PACKAGE(Qt4 REQUIRED)
 
@@ -36,7 +36,8 @@ function(xsd_to_source Input_List Output_Generated)
   ADD_CUSTOM_COMMAND(
    OUTPUT ${FILE_NAME_H} ${FILE_NAME_CPP}
    COMMAND python ${CMAKE_SOURCE_DIR}/Scripts/xsd_to_source.py ${XSDFILENAME}
-   DEPENDS ${XSDFILENAME}
+   DEPENDS ${CMAKE_SOURCE_DIR}/Scripts/xsd_to_source.py
+   MAIN_DEPENDENCY ${XSDFILENAME}
    )
  set(FILES ${FILES} ${FILE_NAME_H} ${FILE_NAME_CPP})
  endforeach()
