@@ -15,7 +15,7 @@ GIT_TREE_INFO( . TBSE_GIT )
 FIND_PACKAGE(Boost REQUIRED)
 
 link_directories ( ${Boost_LIBRARY_DIRS} )
-include_directories ( ${Boost_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} )
+include_directories ( ${Boost_INCLUDE_DIRS} ${CMAKE_BINARY_DIR} )
 
 FIND_PACKAGE(Qt4 REQUIRED)
 

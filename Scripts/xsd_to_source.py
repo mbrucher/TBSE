@@ -18,7 +18,9 @@ def parse_xsd(filename):
       header_name = child.attrib["schemaLocation"].replace("xsd", "h")
       structure.includes.append({"relative":True, "name":header_name})
     if kind == "element":
-      structure.objects.append(child.attrib["name"])
+      struct = XSDContent()
+      struct.name = child.attrib["name"]
+      structure.objects.append(struct)
 
   return structure
 
@@ -67,7 +69,7 @@ struct %s
 {
 %s
 };
-""" % (struct, ""))
+""" % (struct.name, ""))
 
 def generate_header(structure):
   filename = structure.filename + '.h'
