@@ -5,7 +5,10 @@
 
 #include "xsd_traits.h"
 
+#include <cmath>
+
 #include <QtXml/QDomElement>
+#include <QStringList>
 
 void XSDTraits<int>::serialize(const int& object, QDomElement* fragment)
 {
@@ -47,4 +50,23 @@ void XSDTraits<std::vector<std::vector<long> > >::unserialize(std::vector<std::v
 {
   long height = fragment->attribute("height").toLong();
   long width = fragment->attribute("width").toLong();
+  object.clear();
+  object.resize(height);
+  QDomElement element = fragment->firstChildElement();
+  while(!element.isNull())
+  {
+    if(element.tagName() == "line")
+    {
+      QStringList list = element.text().split(",");
+      long minsize = std::min(static_cast<long>(list.size()), width);
+      long id = element.attribute("id").toLong();
+      object[id].resize(width);
+      for(int i = 0; i < minsize; ++i)
+      {
+        object[id][i] = list[i].toLong();
+      }
+    }
+    element = element.nextSiblingElement();
+  }
+
 }
