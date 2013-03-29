@@ -178,6 +178,11 @@ def generate_deserializer(structure, f):
   Write deserializer implementation
   """
   for struct in structure.objects:
+    attributes = ["""  if(element.tagName() == "%s")
+  {
+    XSDTraits<%s>::unserialize(%s, &element);
+  }
+""" % (attribute[0], type_map.get(attribute[1], attribute[1]), attribute[0]) for attribute in struct.attributes]
     f.write("""void %s::unserialize(const QDomElement* node)
 {
   QDomElement element = node->firstChildElement();
@@ -189,7 +194,7 @@ def generate_deserializer(structure, f):
   }
 }
 
-""" % (struct.name, ""))
+""" % (struct.name, "".join(attributes)))
 
 def generate_source(structure):
   """
