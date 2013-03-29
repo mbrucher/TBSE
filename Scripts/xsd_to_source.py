@@ -153,6 +153,7 @@ def generate_includes(structure, f):
  */
 
 #include "%s"
+#include <Core/xsd_traits.h>
 #include <QtXml/QDomElement>
 
 """ % (os.path.basename(header_file), structure.filename, os.path.basename(header_file)))
@@ -162,11 +163,15 @@ def generate_serializer(structure, f):
   Write serializer implementation
   """
   for struct in structure.objects:
+    attributes = ["""  QDomElement element_%s = node->ownerDocument().createElement("%s");
+  XSDTraits<%s>::serialize(%s, &element_%s);
+""" % (attribute[0], attribute[0], type_map.get(attribute[1], attribute[1]), attribute[0], attribute[0]) for attribute in struct.attributes]
     f.write("""void %s::serialize(QDomElement* node) const
 {
+%s
 }
 
-""" % (struct.name))
+""" % (struct.name, "".join(attributes)))
 
 def generate_deserializer(structure, f):
   """
@@ -175,9 +180,16 @@ def generate_deserializer(structure, f):
   for struct in structure.objects:
     f.write("""void %s::unserialize(const QDomElement* node)
 {
+  QDomElement element = node->firstChildElement();
+
+  while(!element.isNull())
+  {
+%s
+    element = element.nextSiblingElement();
+  }
 }
 
-""" % (struct.name))
+""" % (struct.name, ""))
 
 def generate_source(structure):
   """
