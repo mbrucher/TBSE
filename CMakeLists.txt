@@ -15,7 +15,9 @@ GIT_TREE_INFO( . TBSE_GIT )
 FIND_PACKAGE(Boost REQUIRED)
 
 link_directories ( ${Boost_LIBRARY_DIRS} )
-include_directories ( ${Boost_INCLUDE_DIRS} )
+include_directories ( ${Boost_INCLUDE_DIRS} ${CMAKE_BINARY_DIR} )
+
+set(QT_USE_XML TRUE)
 
 FIND_PACKAGE(Qt4 REQUIRED)
 
@@ -26,6 +28,23 @@ configure_file (
   "${PROJECT_SOURCE_DIR}/TBSE_config.h.in"
   "${PROJECT_BINARY_DIR}/TBSE_config.h"
   )
+
+function(xsd_to_source Input_List Output_Generated)
+ foreach(XSDFILENAME ${Input_List})
+  STRING(  REGEX REPLACE "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_BINARY_DIR}" FILENAME ${XSDFILENAME} )
+  STRING(  REGEX REPLACE "Schemas" "Generated" FILE_NAME ${FILENAME} )
+  STRING(  REGEX REPLACE "xsd" "h" FILE_NAME_H ${FILE_NAME} )
+  STRING(  REGEX REPLACE "xsd" "cpp" FILE_NAME_CPP ${FILE_NAME} )
+  ADD_CUSTOM_COMMAND(
+   OUTPUT ${FILE_NAME_H} ${FILE_NAME_CPP}
+   COMMAND python ${CMAKE_SOURCE_DIR}/Scripts/xsd_to_source.py ${XSDFILENAME}
+   DEPENDS ${CMAKE_SOURCE_DIR}/Scripts/xsd_to_source.py
+   MAIN_DEPENDENCY ${XSDFILENAME}
+   )
+ set(FILES ${FILES} ${FILE_NAME_H} ${FILE_NAME_CPP})
+ endforeach()
+ set(${Output_Generated} ${FILES} PARENT_SCOPE)
+endfunction()
 
 add_subdirectory(Core)
 add_subdirectory(GUI)
