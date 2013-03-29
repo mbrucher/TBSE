@@ -3,6 +3,7 @@
 type_map = {
   'integer' : 'int',
   'string' : 'std::string',
+  'TBSEInnerMap' : 'std::vector<std::vector<long> >',
   }
 
 class XSDContent(object):
@@ -17,7 +18,7 @@ def parse_xsd(filename):
   xmlstructure = parse(f)
   structure = XSDContent()
   structure.filename = filename.replace('Schemas', 'Generated').replace('.xsd', '')
-  structure.includes = [{"relative":False, "name":"string"}]
+  structure.includes = [{"relative":False, "name":"string"}, {"relative":False, "name":"vector"}]
   structure.objects = []
 
   for child in xmlstructure.getroot():
@@ -164,7 +165,7 @@ def generate_serializer(structure, f):
   """
   for struct in structure.objects:
     attributes = ["""  QDomElement element_%s = node->ownerDocument().createElement("%s");
-  XSDTraits<%s>::serialize(%s, &element_%s);
+  XSDTraits<%s >::serialize(%s, &element_%s);
 """ % (attribute[0], attribute[0], type_map.get(attribute[1], attribute[1]), attribute[0], attribute[0]) for attribute in struct.attributes]
     f.write("""void %s::serialize(QDomElement* node) const
 {
@@ -180,7 +181,7 @@ def generate_deserializer(structure, f):
   for struct in structure.objects:
     attributes = ["""  if(element.tagName() == "%s")
   {
-    XSDTraits<%s>::unserialize(%s, &element);
+    XSDTraits<%s >::unserialize(%s, &element);
   }
 """ % (attribute[0], type_map.get(attribute[1], attribute[1]), attribute[0]) for attribute in struct.attributes]
     f.write("""void %s::unserialize(const QDomElement* node)

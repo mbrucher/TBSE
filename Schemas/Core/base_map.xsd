@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Map">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="line" type="xs:integer" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Details">
     <xs:complexType>
       <xs:sequence>
@@ -18,7 +11,7 @@
   <xs:element name="TBSEMap">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="map" type="Map" />
+        <xs:element name="map" type="TBSEInnerMap" />
         <xs:element name="type" type="Details" />
       </xs:sequence>
     </xs:complexType>
