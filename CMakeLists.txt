@@ -17,6 +17,8 @@ FIND_PACKAGE(Boost REQUIRED)
 link_directories ( ${Boost_LIBRARY_DIRS} )
 include_directories ( ${Boost_INCLUDE_DIRS} ${CMAKE_BINARY_DIR} )
 
+set(QT_USE_XML TRUE)
+
 FIND_PACKAGE(Qt4 REQUIRED)
 
 include(${QT_USE_FILE})
