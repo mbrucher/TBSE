@@ -4,28 +4,42 @@
 
 #include "core_model.h"
 
+#include <QtXml/QDomDocument>
+
+#include <Generated/Core/base_map.h>
+
 namespace TBSE
 {
   namespace Core
   {
     CoreModel* CoreModel::createModel(const std::string& model)
     {
-      return new CoreModel; // TODO Need to use the XSD generated file
+      QDomDocument doc(QString::fromStdString(model));
+      TBSEMap *map = new TBSEMap;
+      QDomElement root = doc.documentElement();
+      map->unserialize(&root);
+      return new CoreModel(map);; // TODO Need to use the XSD generated file
     }
     
-    unsigned long CoreModel::getHeight() const
+    CoreModel::CoreModel(TBSEMap* map)
+      :map(map)
     {
-      return height;
+      
     }
     
-    unsigned long CoreModel::getWidth() const
+    long CoreModel::height() const
     {
-      return width;
+      return map->getMap().size();
+    }
+    
+    long CoreModel::width() const
+    {
+      return map->getMap()[0].size();
     }
 
     const TerrainElement* CoreModel::getTerrainElement(unsigned long i, unsigned long j) const
     {
-      return &terrain[i + j * width];
+      return &terrain[i + j * width()];
     }
 
   }

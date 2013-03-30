@@ -15,6 +15,8 @@
 #include "terrain_element.h"
 #include "TBSE_Core_config.h"
 
+struct TBSEMap;
+
 namespace TBSE
 {
   namespace Core
@@ -25,14 +27,14 @@ namespace TBSE
 
       boost::ptr_vector<TerrainElement> terrain;
       boost::ptr_vector<IPlayer> players;
+      TBSEMap* map;
       
-      unsigned long width;
-      unsigned long height;
+      CoreModel(TBSEMap* map);
     public:
       static TBSE_Core_EXPORT CoreModel* createModel(const std::string& model);
       
-      unsigned long getWidth() const;
-      unsigned long getHeight() const;
+      long width() const;
+      long height() const;
       
       const TerrainElement* getTerrainElement(unsigned long i, unsigned long j) const;
     };
