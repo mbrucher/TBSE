@@ -19,6 +19,9 @@ include_directories ( ${Boost_INCLUDE_DIRS} ${CMAKE_BINARY_DIR} )
 
 set(QT_USE_XML TRUE)
 
+#ADD_DEFINITIONS("-std=c++11 -stdlib=libc++")
+
+
 FIND_PACKAGE(Qt4 REQUIRED)
 
 include(${QT_USE_FILE})
