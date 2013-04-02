@@ -18,7 +18,7 @@ namespace TBSE
     {
       Q_OBJECT
     public:
-      SceneModel(QObject* parent);
+      SceneModel(QObject* parent, long player);
 
     protected:
       void populate_stub();
