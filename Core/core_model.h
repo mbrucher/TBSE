@@ -11,6 +11,8 @@
 
 #include <boost/ptr_container/ptr_vector.hpp>
 
+#include "core_model.h"
+//#include "core_view.h"
 #include "iplayer.h"
 #include "terrain_element.h"
 #include "TBSE_Core_config.h"
@@ -27,6 +29,7 @@ namespace TBSE
 
       boost::ptr_vector<TerrainElement> terrain;
       boost::ptr_vector<IPlayer> players;
+      //boost::ptr_vector<CoreView> views;
       TBSEMap* map;
       
       CoreModel(TBSEMap* map);
