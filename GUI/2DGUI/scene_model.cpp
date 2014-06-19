@@ -20,7 +20,7 @@ namespace TBSE
      */
     HexagonItem* createItem(const QString& filename);
 
-    SceneModel::SceneModel(QObject* parent)
+    SceneModel::SceneModel(QObject* parent, long player)
       :QGraphicsScene(parent)
     {
       setBackgroundBrush(::Qt::black);

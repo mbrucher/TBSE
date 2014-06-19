@@ -29,7 +29,7 @@ namespace TBSE
       models.clear();
       for(unsigned int i = 0; i < numberOfPlayers; ++i)
       {
-        models.push_back(new SceneModel(this));
+        models.push_back(new SceneModel(this, i));
       }
     }
 
